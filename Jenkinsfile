@@ -1,6 +1,6 @@
 pipeline {
 	agent any
-	env {
+	environment {
 		// Set the PATH variable to include JDK and Maven
 		dockerHome = tool 'myDocker'
 		mavenHome = tool 'myMaven'
