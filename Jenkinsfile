@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	stages {
-		stage('Build') {
+		stage('Checkout') {
 			steps {
 				echo 'Building..'
 				echo "$PATH"
@@ -10,17 +10,21 @@ pipeline {
 				echo "$env.JOB_NAME"
 				echo "$env.BUILD_TAG"
 				echo "$env.BUILD_URL"
-
+			}
+		}
+		stage('Complie') {
+			steps {
+				sh "mvn clean compile"
 			}
 		}
 		stage('Test') {
 			steps {
-				echo 'Testing..'
+				echo "mvn test"
 			}
 		}
 		stage('Integration Test') {
 			steps {
-				echo 'Integration Testing..'
+				echo "mvn failsafe:integration-test failsafe:verify"
 			}
 		}
 	}
