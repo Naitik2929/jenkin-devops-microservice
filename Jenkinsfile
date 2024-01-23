@@ -1,5 +1,11 @@
 pipeline {
 	agent any
+	env {
+		// Set the PATH variable to include JDK and Maven
+		dockerHome = tool 'myDocker'
+		mavenHome = tool 'myMaven'
+		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+	}
 	stages {
 		stage('Checkout') {
 			steps {
