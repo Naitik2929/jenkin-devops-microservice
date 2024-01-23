@@ -42,7 +42,7 @@ pipeline {
 			steps {
 				// sh "docker build -t naitikpatel/cur-exc-dev:$env.BUILD_TAG"
 				script {
-					dockerImage = docker.build("naitikpatel/cur-exc-dev:${env.BUILD_TAG} ")
+					dockerImage = docker.build(":${env.BUILD_TAG.replaceAll('[^a-zA-Z0-9_.-]', '_')}")
 				}
 			}
 		}
