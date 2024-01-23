@@ -1,14 +1,16 @@
 pipeline {
-	agent {
-		docker {
-			image 'node:13.8'  
-		}
-	}
+	agent any
 	stages {
 		stage('Build') {
 			steps {
-				sh 'node --version'
-				echo 'Build'
+				echo 'Building..'
+				echo '$PATH'
+				echo '$env.BUILD_NUMBER'
+				echo '$env.BUILD_ID'
+				echo '$env.JOB_NAME'
+				echo '$env.BUILD_TAG'
+				echo '$env.BUILD_URL'
+
 			}
 		}
 		stage('Test') {
