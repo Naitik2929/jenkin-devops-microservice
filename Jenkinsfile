@@ -42,7 +42,7 @@ pipeline {
 			steps {
 				// sh "docker build -t naitikpatel/cur-exc-dev:$env.BUILD_TAG"
 				script {
-					dockerImage = docker.build("naitikpatel/cur-exc-dev:test")
+					dockerImage = docker.build("naitikpatel/cur-exc-dev:0.0.0.1")
 				}
 			}
 		}
